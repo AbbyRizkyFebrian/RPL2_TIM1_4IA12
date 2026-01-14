@@ -1,0 +1,640 @@
+/* Reset CSS dasar & Font */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* 1. Header & Navigasi */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: #eee;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;   
+    text-decoration: none; 
+    color: #333;           
+}
+
+.logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.logo span {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.nav-links ul {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 2rem;
+}
+
+:root {
+    --brand-color: #4a15a8;
+    --brand-color-light: #f4f0ff; /* Warna ungu yang sangat muda */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333; /* Warna teks normal */
+    font-weight: bold;
+    
+    /* Ubah padding & border-radius untuk membuatnya jadi "pil" */
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px; /* Ini yang membuatnya jadi kapsul */
+    
+    background-color: transparent; /* Latar belakang normal */
+    border: 2px solid transparent; /* Border transparan (untuk hover) */
+    
+    /* Ini kunci interaksinya: transisi yang halus */
+    transition: all 0.3s ease-in-out;
+}
+
+/* Efek saat mouse diarahkan (HOVER) */
+.nav-links a:hover {
+    color: var(--brand-color); /* Teks berubah jadi warna brand */
+    background-color: var(--brand-color-light); /* Latar jadi ungu muda */
+    
+    /* Efek tombol terangkat */
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Style untuk link yang sedang aktif (misal: "Beranda") */
+.nav-links a.active {
+    background-color: var(--brand-color) !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 10px rgba(168, 85, 247, 0.4);
+}
+
+/* (Opsional) Efek saat tombol ditekan */
+.nav-links a:active {
+    transform: translateY(-1px); /* Tombol turun sedikit */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.contact-icon {
+    background-color: #4a15a8; /* Biru/Ungu dari gambar */
+    color: #ffffff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+/* 2. Hero Section */
+.hero {
+    height: 70vh;
+    /* background DIHAPUS dari sini */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    color: #ffffff;
+}
+
+
+/* Lapisan gelap agar teks mudah dibaca */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+}
+
+.hero-content {
+    position: relative; /* Agar di atas lapisan gelap */
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+.cta-button {
+    background-color: #4a15a8; /* Biru/Ungu dari gambar */
+    color: #ffffff;
+    padding: 0.6rem 1.2rem;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #3a108a;
+}
+
+/* --- CSS UNTUK TATA LETAK BERSEBELAHAN --- */
+
+/* 1. Wadah Utama (Parent) */
+.about-section {
+    display: flex;             /* Mengaktifkan mode Flexbox */
+    align-items: center;       /* Menyejajarkan item secara vertikal di tengah */
+    justify-content: space-between; /* Memberi jarak di antara kedua kolom */
+    gap: 40px;                 /* Jarak antar kolom (teks dan gambar) */
+    padding: 60px 20px;        /* Ruang di dalam section */
+    max-width: 1200px;         /* Lebar maksimal agar tidak terlalu melebar di layar besar */
+    margin: 0 auto;            /* Menengahkan section secara horizontal */
+}
+
+/* 2. Kolom Kiri (Konten Teks) */
+.about-content {
+    flex: 1;                   /* Mengambil ruang yang tersedia (fleksibel) */
+    max-width: 600px;          /* Membatasi lebar teks agar nyaman dibaca */
+}
+
+.about-content h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.about-content p {
+    line-height: 1.6;          /* Jarak antar baris agar mudah dibaca */
+    color: #555;
+    margin-bottom: 25px;
+    text-align: justify;       /* Meratakan teks (opsional, sesuai selera) */
+}
+
+    /* 3. Tombol */
+    .btn-legalitas {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #2E3B55; /* Sesuaikan dengan warna tema Anda */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-legalitas:hover {
+    background-color: #1a253a; /* Warna saat kursor di atas tombol */
+}
+
+/* --- RESPONSIVE (Agar rapi di HP) --- */
+@media (max-width: 768px) {
+.about-section {
+    flex-direction: column; /* Ubah jadi tumpuk ke bawah di layar kecil */
+    text-align: center;     /* Tengahkan teks */
+}
+        
+.about-content {
+    max-width: 100%;        /* Lebar penuh di HP */
+}
+
+.btn-legalitas {
+    margin-bottom: 30px;    /* Beri jarak antara tombol dan gambar di HP */
+}
+}
+
+/* 3. & 4. Section Layanan & Portofolio */
+.services, .portfolio {
+    padding: 3rem 5%;
+}
+
+.services h2, .portfolio h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    /* Garis oranye di sebelah kiri judul */
+    border-left: 6px solid #f39c12; /* Warna Oranye */
+    padding-left: 10px;
+}
+
+.grid-container {
+    display: grid;
+    gap: 1.5rem;
+}
+
+/* Grid untuk "Layanan Kami" */
+.grid-4-cols {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+/* Grid untuk "Portofolio" */
+.grid-2-cols {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+
+.grid-item {
+    position: relative; /* Diperlukan agar <figcaption> bisa diposisikan */
+    overflow: hidden; /* Sembunyikan figcaption yg keluar */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.grid-item img {
+    width: 100%;
+    height: auto;
+    display: block; /* Menghilangkan spasi aneh di bawah gambar */
+    transition: transform 0.4s ease; /* Efek zoom halus */
+}
+
+.grid-item figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.75); /* Latar belakang info */
+    color: #ffffff;
+    padding: 1rem;
+
+    /* Sembunyikan figcaption di awal */
+    opacity: 0;
+    transform: translateY(100%); /* Geser ke bawah */
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.grid-item figcaption h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.25rem;
+}
+
+.grid-item figcaption p {
+    font-size: 0.9rem;
+}
+
+/* Saat di-hover... */
+.grid-item:hover figcaption {
+    opacity: 1; /* Tampilkan info */
+    transform: translateY(0); /* Geser kembali ke posisi normal */
+}
+
+/* (Opsional) Efek zoom pada gambar saat di-hover */
+.grid-item:hover img {
+    transform: scale(1.1); /* Gambar membesar sedikit */
+}
+
+/* 5. Footer */
+footer {
+    background-color: #333;
+    color: #ffffff;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+/* 6. Desain Responsif (Penting untuk HP) */
+@media (max-width: 992px) {
+    .grid-4-cols {
+        grid-template-columns: repeat(2, 1fr); /* Jadi 2 kolom */
+    }
+}
+
+@media (max-width: 768px) {
+    /* Navigasi bisa disembunyikan di balik "burger menu" (perlu JS) */
+    /* Untuk contoh ini, kita buat lebih sederhana */
+    .nav-links {
+        display: none; /* Sembunyikan dulu */
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .grid-4-cols,
+    .grid-2-cols {
+        grid-template-columns: 1fr; /* Jadi 1 kolom semua */
+    }
+}
+
+/* ========================================= */
+/* 7. BALON CHAT BOT (Versi Baru)            */
+/* ========================================= */
+
+/* 1. RESET & DASAR */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body { background-color: #f4f4f4; }
+
+    /* 2. TOMBOL MELAYANG (TOGGLER) */
+    .chatbot-toggler {
+      position: fixed;
+      bottom: 30px;
+      right: 35px;
+      outline: none;
+      border: none;
+      height: 60px;
+      width: 60px;
+      display: flex;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: #2E3B55; /* Warna Utama Perusahaan */
+      transition: all 0.2s ease;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+    .chatbot-toggler span { color: #fff; position: absolute; }
+    
+    /* Animasi ikon saat diklik */
+    .show-chatbot .chatbot-toggler span:first-child,
+    .chatbot-toggler span:last-child { opacity: 0; }
+    .show-chatbot .chatbot-toggler span:last-child { opacity: 1; }
+
+    /* 3. JENDELA CHATBOX */
+    .chatbot {
+      position: fixed;
+      right: 35px;
+      bottom: 100px;
+      width: 350px; /* Lebar chatbox */
+      background: #fff;
+      border-radius: 15px;
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(0.5);
+      transform-origin: bottom right;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      transition: all 0.1s ease;
+    }
+    body.show-chatbot .chatbot { opacity: 1; pointer-events: auto; transform: scale(1); }
+
+    /* HEADER */
+    .chatbot header {
+      background: #2E3B55; /* Warna Header */
+      padding: 16px 0;
+      position: relative;
+      text-align: center;
+      color: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .chatbot header h2 { font-size: 1.2rem; }
+    .chatbot header span {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      display: none;
+      cursor: pointer;
+      transform: translateY(-50%);
+    }
+
+    /* AREA PESAN (CHATBOX) */
+    .chatbox {
+      overflow-y: auto;
+      height: 350px; /* Tinggi area chat */
+      padding: 20px 20px 70px;
+    }
+    
+    /* GAYA BUBBLE CHAT */
+    .chatbox .chat { display: flex; list-style: none; margin-bottom: 15px; }
+    
+    /* Bubble BOT (Kiri) */
+    .chatbox .incoming span {
+      width: 32px;
+      height: 32px;
+      color: #fff;
+      cursor: default;
+      text-align: center;
+      line-height: 32px;
+      align-self: flex-end;
+      background: #2E3B55;
+      border-radius: 4px;
+      margin: 0 10px 7px 0;
+    }
+    .chatbox .incoming p {
+      background: #f2f2f2;
+      color: #000;
+      border-radius: 10px 10px 10px 0;
+      padding: 12px 16px;
+      max-width: 75%;
+      font-size: 0.95rem;
+    }
+
+    /* Bubble USER (Kanan) */
+    .chatbox .outgoing { justify-content: flex-end; margin: 20px 0; }
+    .chatbox .outgoing p {
+      background: #2E3B55; /* Warna Bubble User */
+      color: #fff;
+      border-radius: 10px 10px 0 10px;
+      padding: 12px 16px;
+      max-width: 75%;
+      font-size: 0.95rem;
+    }
+
+    /* INPUT AREA */
+    .chat-input {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: #fff;
+      padding: 3px 20px;
+      border-top: 1px solid #ddd;
+      display: flex;
+      gap: 5px;
+    }
+    .chat-input textarea {
+      height: 55px;
+      width: 100%;
+      border: none;
+      outline: none;
+      resize: none;
+      max-height: 180px;
+      padding: 15px 15px 15px 0;
+      font-size: 0.95rem;
+    }
+    .chat-input span {
+      align-self: flex-end;
+      color: #2E3B55;
+      cursor: pointer;
+      height: 55px;
+      display: flex;
+      align-items: center;
+      visibility: hidden;
+      font-size: 1.35rem;
+    }
+    .chat-input textarea:valid ~ span { visibility: visible; }
+    /* Update CSS ini agar chatbot melayang di paling atas */
+    .chatbot-toggler, .chatbot {
+    z-index: 9999 !important; /* !important memaksa agar aturan ini yang menang */
+}
+/* --- SECTION KONTAK (CONTACT US) --- */
+    .contact-section {
+        display: flex;
+        justify-content: space-between;
+        padding: 60px 20px;
+        max-width: 1000px; /* Lebar dibatasi agar rapi */
+        margin: 0 auto;
+        gap: 50px;
+    }
+
+    .contact-info {
+        flex: 1;
+        max-width: 300px;
+    }
+    .contact-info h2 {
+        font-size: 2rem;
+        margin-bottom: 15px;
+        color: #000;
+    }
+    .contact-info p {
+        color: #666;
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    .contact-form {
+        flex: 1.5; /* Form lebih lebar dari teks info */
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+    .form-group label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 8px;
+        font-size: 0.9rem;
+        color: #333;
+    }
+    .form-group input, 
+    .form-group textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 0.95rem;
+        background-color: #fcfcfc;
+    }
+    .form-group textarea {
+        height: 100px;
+        resize: vertical;
+    }
+
+    .btn-submit {
+        background-color: #000;
+        color: #fff;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 1rem;
+        transition: background 0.3s;
+    }
+    .btn-submit:hover {
+        background-color: #333;
+    }
+
+    /* --- SECTION REVIEWS --- */
+    .reviews-section {
+        text-align: center;
+        padding: 60px 20px;
+        background-color: #fff;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .reviews-section h2 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+    .reviews-section p.subtitle {
+        color: #666;
+        margin-bottom: 40px;
+        font-size: 0.9rem;
+    }
+
+    .reviews-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 Kolom */
+        gap: 20px;
+    }
+
+    .review-card {
+        background: #f9f9f9; /* Warna abu-abu muda */
+        padding: 25px;
+        border-radius: 8px;
+        text-align: left;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .review-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+        justify-content: space-between;
+    }
+    
+    .user-profile {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .user-avatar {
+        width: 40px;
+        height: 40px;
+        background-color: #ddd;
+        border-radius: 50%;
+    }
+    .user-name {
+        font-weight: bold;
+        font-size: 0.95rem;
+    }
+    .stars {
+        color: #FFD700; /* Warna Emas */
+        letter-spacing: 2px;
+    }
+    .review-text {
+        font-size: 0.9rem;
+        color: #555;
+        line-height: 1.5;
+    }
+
+    /* --- SECTION PETA (MAP) --- */
+    .map-section {
+        padding: 40px 20px 80px;
+        text-align: center;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .map-section h2 {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+    .map-container iframe {
+        width: 100%;
+        height: 450px;
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    /* RESPONSIVE (HP) */
+    @media (max-width: 768px) {
+        .contact-section { flex-direction: column; gap: 30px; }
+        .reviews-grid { grid-template-columns: 1fr; } /* 1 Kolom di HP */
+    }
+
+    html {
+    scroll-behavior: smooth;
+}
